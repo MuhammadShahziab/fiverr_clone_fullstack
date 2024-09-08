@@ -1,0 +1,105 @@
+@import "./../../styles/variables.scss";
+@import "./../../styles/resposive.scss";
+.message {
+  margin-top: 100px;
+  @include sm {
+    margin-top: 0px;
+  }
+  .container {
+    .breadcrumbs {
+      @include breadcrumbs;
+
+      @include sm {
+        display: none;
+      }
+    }
+    .messages {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 50px;
+      margin: 20px 0px;
+      height: 300px;
+      overflow-y: scroll;
+      border-radius: 7px;
+      background-color: #fafafa;
+
+      @include sm {
+        height: calc(
+          100vh - 21vh
+        ); // Adjusted to account for 10vh for the top nav and 15vh for the bottom text area
+        padding: 20px;
+        border-radius: 0px;
+        margin: 0px;
+      }
+      .item {
+        display: flex;
+        max-width: 50%;
+        gap: 15px;
+        font-size: 15px;
+
+        @include sm {
+          max-width: 80%;
+        }
+        &.owner {
+          flex-direction: row-reverse;
+          align-self: flex-end;
+
+          p {
+            background-color: #27da86;
+            color: white;
+            border-radius: 15px 0px 15px 15px;
+          }
+        }
+        p {
+          background-color: rgb(243, 240, 240);
+          border-radius: 0px 15px 15px 15px;
+          padding: 20px;
+          color: gray;
+          font-weight: 400;
+        }
+        img {
+          width: 40px;
+          height: 40px;
+          object-fit: cover;
+          border-radius: 50%;
+          @include sm {
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+    }
+    .write {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      @include sm {
+        padding: 0px 15px;
+      }
+      textarea {
+        width: 70%;
+        height: 60px;
+        border: 1px solid lightgray;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 17px;
+        outline: none;
+        @include sm {
+          height: 25px;
+          font-size: 15px;
+        }
+      }
+      button {
+        background-color: royalblue;
+        border: none;
+        padding: 15px 20px;
+        border-radius: 10px;
+        color: white;
+        cursor: pointer;
+        font-weight: 500;
+      }
+    }
+  }
+}

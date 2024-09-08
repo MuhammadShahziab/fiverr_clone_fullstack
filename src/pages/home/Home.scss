@@ -1,0 +1,345 @@
+@import "./../../styles/variables.scss";
+@import "./../../styles/resposive.scss";
+.features {
+  margin-top: 20px;
+  padding: 0px;
+  @include md {
+    padding: 20px;
+    margin-top: 30px;
+  }
+  .container {
+    background-color: #e8faf4;
+
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+
+    @include sm {
+      padding-left: 10px;
+    }
+
+    .left {
+      flex: 1;
+      padding: 50px 30px 30px 80px;
+      justify-content: center;
+      @include md {
+        justify-content: start;
+        padding: 20px;
+      }
+      @include sm {
+        flex: 1;
+        padding: 20px 10px;
+        justify-content: start;
+      }
+
+      .sub-heading {
+        font-weight: 900;
+        font-size: 40px;
+        color: $black;
+        span {
+          font-weight: 500;
+          font-size: 35px;
+        }
+      }
+
+      h1 {
+        margin-top: 30px;
+        font-size: 50px;
+        color: #222325;
+        font-weight: 400;
+
+        @include sm {
+          font-size: 40px;
+        }
+
+        i {
+          color: #1dbf73;
+        }
+      }
+      .content {
+        display: grid; // Use grid layout
+        grid-template-columns: repeat(2, 1fr); // Set two columns
+        gap: 22px;
+        margin-top: 25px;
+        @include sm {
+          grid-template-columns: repeat(1, 1fr); // Set two columns
+        }
+
+        .item {
+          .title {
+            display: flex;
+            align-items: end;
+            gap: 0px 8px;
+            img {
+              width: 20px;
+              margin-bottom: 2px;
+              background-color: #003912;
+              border-radius: 50%;
+            }
+            h3 {
+              margin-top: 10px;
+              color: #222325;
+            }
+          }
+
+          .des {
+            line-height: 23px;
+          }
+        }
+      }
+      .button {
+        button {
+          border: none;
+          background-color: #222325;
+          padding: 15px 30px;
+          border-radius: 6px;
+          color: white;
+          font-weight: 500;
+          margin-top: 30px;
+        }
+        @include md {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+    .right {
+      flex: 1;
+      img {
+        width: 550px;
+        height: 550px;
+        object-fit: contain;
+      }
+
+      @include md {
+        display: none;
+      }
+    }
+  }
+}
+
+// -----------videos section----------
+
+.video {
+  padding: 20px;
+  .container {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include md {
+      margin-top: 20px;
+    }
+    h1 {
+      color: #222325;
+      font-weight: 400;
+      font-size: 40px;
+      @include sm {
+        font-size: 35px;
+      }
+    }
+    p {
+      color: gray;
+    }
+
+    .video_add {
+      width: 100%;
+      margin-top: 30px;
+      max-height: 450px; // Ensure the container's height does not exceed 400px
+      overflow: hidden; // Hide any overflow to maintain the set height
+      @include sm {
+        margin-top: 10px;
+        height: 500px;
+      }
+      video {
+        width: 100%; // Make the video take full width
+        height: 100%; // Set video height to fill the container's height
+        max-height: 450px; // Restrict the video height to 400px
+        border-radius: 15px;
+        object-fit: cover; // Keep the video aspect ratio while covering the entire height
+      }
+    }
+  }
+}
+
+// -----------Advertise Section-----------
+.advertise {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+
+  @include md {
+    padding: 0px 20px;
+  }
+  @include sm {
+    padding: 0px 50px;
+  }
+
+  .container {
+    background-color: #fff6f2;
+
+    border-radius: 15px;
+    display: flex;
+    height: 470px;
+    padding: 40px 0px 0px 0px;
+    @include sm {
+      flex-direction: column-reverse;
+      height: max-content;
+      padding: 0px 20px 35px 20px;
+    }
+
+    .left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px 50px 20px 50px;
+      margin-top: 40px;
+      @include md {
+        padding: 20px;
+      }
+
+      @include sm {
+        padding: 0px;
+        margin-top: 0px;
+      }
+
+      .sub-heading {
+        font-weight: 900;
+        font-size: 36px;
+        color: $black;
+
+        span {
+          font-weight: 400;
+        }
+      }
+      h1 {
+        color: #222325;
+        width: 80%;
+        font-size: 50px;
+        font-weight: 400;
+        line-height: 50px;
+        margin-top: 30px;
+
+        @include md {
+          width: 100%;
+          margin-top: 10px;
+        }
+        @include sm {
+          margin-top: 0px;
+          font-size: 41px;
+          width: 95%;
+
+          line-height: 42px;
+        }
+
+        span {
+          color: orange;
+          font-family: "Courier New", Courier, monospace;
+        }
+      }
+      p {
+        @include sm {
+          color: gray;
+          font-size: 22px;
+          font-weight: 400;
+        }
+      }
+      button {
+        background-color: #222325;
+        padding: 12px 20px;
+        color: white;
+        border-radius: 10px;
+        border: none;
+        width: max-content;
+        font-size: 18px;
+        font-weight: 400;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+    }
+    .right {
+      flex: 1;
+
+      @include md {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      img {
+        width: 500px;
+        height: 500px;
+        object-fit: contain;
+        @include md {
+          width: 300px;
+          height: 300px;
+        }
+        @include sm {
+          width: 285px;
+          height: 285px;
+        }
+      }
+    }
+  }
+}
+.test {
+  padding: 0px !important;
+}
+.project_slide {
+  @include sm {
+    display: flex;
+    align-items: center;
+
+    padding: 5px 10px !important;
+    margin: 0px 5px 10px 0px !important;
+  }
+}
+
+// ------------advertise 2-------------
+
+.advertise2 {
+  @include md {
+    padding: 0px 20px;
+  }
+
+  .container {
+    border-radius: 15px;
+    background-color: #4d1727;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0px;
+    text-align: center;
+    margin-top: 30px;
+    @include sm {
+      padding: 40px 20px;
+      margin-top: 0px;
+    }
+
+    h1 {
+      font-size: 50px;
+      color: white;
+      font-weight: 400;
+      @include sm {
+        font-size: 43px;
+      }
+
+      span {
+        color: orange;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+    }
+    button {
+      background-color: #eee8ea;
+      color: black;
+      border-radius: 10px;
+      border: none;
+      width: 200px;
+      margin: 0px auto;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 10px 15px;
+      margin-top: 20px;
+    }
+  }
+}

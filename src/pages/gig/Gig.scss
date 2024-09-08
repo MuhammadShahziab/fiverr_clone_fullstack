@@ -1,0 +1,256 @@
+@import "./../../styles/variables.scss";
+@import "./../../styles/resposive.scss";
+.gig {
+  width: 100%;
+  overflow: hidden;
+  .container {
+    padding: 30px 0px;
+
+    gap: 100px;
+    margin-top: 80px;
+
+    @include sm {
+      padding: 0px 20px;
+      gap: 0px;
+      margin-top: 40px;
+    }
+
+    .main {
+      display: flex;
+      width: 100%;
+
+      @include sm {
+        flex-direction: column;
+      }
+
+      .left {
+        display: flex;
+        flex-direction: column;
+        flex: 2;
+        gap: 20px;
+
+        .breadcrumbs {
+          @include breadcrumbs;
+        }
+
+        h1 {
+          color: #404145;
+          // max-width: 90%;
+          display: none;
+        }
+
+        .slider_section {
+          max-width: 770px;
+          display: flex;
+          margin-top: 10px;
+          justify-content: start;
+
+          // @include sm {
+          //   max-width: 320px;
+          //   overflow: hidden;
+          // }
+
+          .slider {
+            img {
+              max-height: 400px;
+              object-fit: cover;
+              border-radius: 7px;
+              width: 100%; /* Ensure images take the full width of the slider */
+            }
+          }
+        }
+      }
+
+      .right {
+        flex: 1;
+        height: max-content;
+        max-height: 500px;
+        position: sticky;
+        top: 150px; /* Adjust this value based on where you want it to start sticking */
+        right: 0px;
+        border: 1px solid lightgray;
+        padding: 20px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        @include sm {
+          margin-top: 20px;
+          position: static; /* To handle responsiveness on smaller screens */
+        }
+        .price {
+          display: flex;
+          justify-content: space-between;
+          h3 {
+            color: #404145;
+            font-size: 17px;
+          }
+          h2 {
+            font-size: 19px;
+            font-weight: 400;
+          }
+        }
+        p {
+          color: gray;
+          font-weight: 400;
+        }
+        .details {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 14px;
+          .item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            span {
+              font-weight: 700;
+              color: gray;
+            }
+            img {
+              width: 20px;
+            }
+          }
+        }
+        .heading {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          cursor: pointer;
+          p {
+            color: black;
+            font-size: 15px;
+            font-weight: 700;
+          }
+          img {
+            width: 20px;
+            cursor: pointer;
+          }
+        }
+        .features {
+          display: flex;
+          flex-direction: column;
+          gap: 0px !important;
+          padding: 0px !important;
+          margin: 0px !important;
+
+          .item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 400;
+            color: gray;
+            font-size: 15px;
+            margin-bottom: 5px;
+
+            img {
+              width: 14px;
+            }
+          }
+
+          button {
+            background-color: #1dbf73;
+            border: none;
+            padding: 15px;
+            color: white;
+            font-weight: 600;
+            font-size: 17px;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .about {
+      flex: 2;
+      width: 60%;
+      @include sm {
+        width: 100%;
+      }
+
+      h2 {
+        color: #404145;
+        margin-top: 20px;
+        padding-left: 10px;
+      }
+      p {
+        font-weight: 400;
+        line-height: 25px;
+        padding: 0px 30px 0px 10px;
+        color: #555;
+
+        text-align: justify;
+        margin-top: 10px;
+      }
+      .box {
+        border: 1px solid lightgray;
+        border-radius: 5px;
+        // max-width: 80%;
+        padding: 20px;
+        margin-top: 20px;
+        .items {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          .item {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 20px;
+
+            .title {
+              font-weight: 400;
+              color: gray;
+            }
+            .desc {
+              font-weight: 600;
+              color: #404145;
+            }
+          }
+        }
+        hr {
+          height: 0;
+          border: 0.5px solid rgb(233, 231, 231);
+          margin-bottom: 20px;
+        }
+        .detail {
+          width: 100%;
+          span {
+            color: gray;
+            font-size: 17px;
+            font-weight: 400;
+          }
+        }
+      }
+
+      .reviews {
+        margin-top: 50px;
+
+        @include sm {
+          margin-top: 50px;
+        }
+
+        h1 {
+          color: #404145;
+          font-size: 20px;
+        }
+        .reviewBtn {
+          padding: 10px 20px;
+          border-radius: 10px;
+          font-weight: 500;
+          background-color: white;
+          font-size: 18px;
+          margin-top: 30px;
+          cursor: pointer;
+          &:hover {
+            background-color: rgb(240, 236, 236);
+          }
+        }
+      }
+    }
+  }
+}

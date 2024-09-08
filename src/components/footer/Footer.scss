@@ -1,0 +1,196 @@
+@import "./../../styles/variables.scss";
+@import "./../../styles/resposive.scss";
+
+.footer {
+  margin-top: 80px;
+  padding-top: 40px;
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto;
+    padding-bottom: 0px !important;
+
+    @include lg {
+      max-width: 1290px;
+    }
+    @include md {
+      max-width: 768px;
+      padding: 20px;
+    }
+    .top {
+      display: flex;
+      justify-content: space-between;
+
+      @include md {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include sm {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .item {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        @include md {
+          margin-bottom: 30px;
+        }
+
+        @include sm {
+          gap: 10px;
+          margin-bottom: 0px;
+        }
+
+        .title {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          h1 {
+            font-size: 18px;
+            color: $black;
+          }
+          img {
+            display: none;
+            @include sm {
+              display: flex;
+              width: 18px;
+            }
+          }
+        }
+
+        .linkss {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          margin-top: 20px;
+          @include md {
+            margin-top: 13px;
+          }
+          @include sm {
+            margin-top: 4px;
+          }
+
+          span {
+            color: #74767e;
+          }
+          @include sm {
+            display: none;
+            &.active {
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+            }
+          }
+        }
+      }
+    }
+    hr {
+      margin: 60px 0px 0px 0px;
+      height: 0;
+      border: 1px solid rgb(226, 225, 225);
+
+      @include sm {
+        margin: 25px 0px 10px 0px;
+      }
+    }
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0px;
+      @include md {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      @include sm {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .left {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        @include sm {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+        h2 {
+          color: gray;
+        }
+        span {
+          font-size: 13px;
+          color: gray;
+          font-weight: 500;
+          @include sm {
+            font-size: 14px;
+          }
+        }
+      }
+      .right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        width: max-content;
+        @include sm {
+          display: flex;
+          flex-direction: column;
+          gap: 0px;
+        }
+        span {
+          padding: 10px;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &:hover {
+            background-color: rgb(233, 230, 230);
+          }
+          img {
+            width: 24px;
+            height: 24px;
+          }
+        }
+        .social_icons {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          margin-right: 35px;
+          @include sm {
+            margin: 0px auto;
+          }
+        }
+        .english {
+          display: flex;
+          .link {
+            display: flex;
+            align-items: center;
+
+            padding: 0px 5px;
+            border-radius: 20px;
+            &:hover {
+              background-color: rgb(233, 230, 230);
+              cursor: pointer;
+            }
+            img {
+              width: 17px;
+              height: 17px;
+            }
+            span {
+              color: gray;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

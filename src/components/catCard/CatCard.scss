@@ -1,0 +1,36 @@
+@import "./../../styles/variables.scss";
+@import "./../../styles/resposive.scss";
+.Card {
+  width: 190px;
+  height: 260px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 6px;
+  align-items: start;
+
+  @include md {
+  }
+  @include sm {
+    width: 140px;
+    height: 200px;
+  }
+
+  p {
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    margin-top: 20px;
+    padding: 0px 10px;
+    @include sm {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+  }
+  img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+}

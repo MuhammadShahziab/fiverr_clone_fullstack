@@ -1,0 +1,40 @@
+.categories {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  .container {
+    width: 1290px;
+    display: flex;
+    gap: 22px;
+
+    .card {
+      display: flex;
+      border: 1px solid rgb(245, 242, 242);
+      width: 180px;
+      padding: 15px 10px;
+      border-radius: 10px;
+      flex-direction: column;
+      gap: 8px;
+      align-items: start;
+      cursor: pointer;
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+        0 4px 6px -4px rgb(0 0 0 / 0.1);
+      img {
+        height: 30px;
+      }
+      p {
+        font-weight: 500;
+      }
+    }
+  }
+}
+@media (min-width: 1536px) {
+  // 2xl screens
+  .container {
+    width: 1400px; // Width for larger screens
+
+    .card {
+      width: 200px; // Increase card width for larger screens if needed
+    }
+  }
+}

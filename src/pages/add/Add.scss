@@ -1,0 +1,140 @@
+@import "./../../styles/variables.scss";
+@import "./../../styles/resposive.scss";
+.add {
+  .container {
+    padding: 50px 0px;
+    h1 {
+      font-weight: 300;
+      color: black;
+      font-size: 26px;
+      margin-bottom: 30px;
+
+      @include sm {
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+    }
+    @include sm {
+      padding: 0px 20px;
+      margin-top: 25px;
+    }
+
+    .section {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px 100px;
+
+      @include sm {
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      .input_div {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 15px;
+
+        @include sm {
+          margin-bottom: 0px;
+        }
+
+        label {
+          color: gray;
+          font-size: 17px;
+        }
+
+        .point {
+          display: flex;
+          flex-direction: row !important;
+          justify-content: space-between;
+          gap: 10px;
+          align-items: center;
+          input {
+            width: 100% !important;
+          }
+          .add {
+            width: 40px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(240, 237, 237);
+            cursor: pointer;
+            font-size: 22px;
+            font-weight: 500;
+            &:hover {
+              background-color: #1dbf73;
+              color: white;
+            }
+          }
+          .remove {
+            width: 40px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(240, 237, 237);
+            cursor: pointer;
+            font-size: 22px;
+            font-weight: 500;
+            &:hover {
+              background-color: rgb(247, 108, 108);
+              color: white;
+            }
+          }
+        }
+        input,
+        textarea,
+        select {
+          padding: 20px;
+
+          font-size: 16px;
+          outline: none;
+          border: 1px solid lightgray;
+          &::placeholder {
+            font-size: 17px;
+          }
+          &:focus {
+            border: 1px solid #1dbf73;
+          }
+
+          @include sm {
+            padding: 13px;
+          }
+        }
+
+        select {
+          font-size: 15px;
+        }
+
+        &.img input {
+          padding: 15px 0px;
+          border: none;
+        }
+      }
+    }
+
+    .button {
+      display: flex;
+      justify-content: end;
+      margin-top: 40px;
+      button {
+        border: none;
+        padding: 20px;
+        color: white;
+        font-weight: 500;
+        width: 46%;
+        font-size: 18px;
+        background-color: #1dbf73;
+        cursor: pointer;
+
+        @include sm {
+          padding: 13px 10px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

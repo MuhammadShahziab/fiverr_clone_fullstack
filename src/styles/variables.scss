@@ -1,0 +1,48 @@
+// Colors
+$black: #222325;
+$green: #1dbf73;
+$background: #f1f5f9;
+$darkgreen: #02652d;
+
+// Border Radius
+$box: 15px;
+
+@mixin breadcrumbs {
+  color: #555;
+  font-weight: 400;
+  font-size: 15px;
+}
+// Breakpoint Mixin
+@mixin breakpoint($point) {
+  @if $point == sm {
+    // Small Mobile: 320px and up
+    @media (min-width: 20em) {
+      // 320px
+      @content;
+    }
+  } @else if $point == md {
+    // Tablet: 768px and up
+    @media (min-width: 48em) {
+      // 768px
+      @content;
+    }
+  } @else if $point == lg {
+    // Desktop: 1024px and up
+    @media (min-width: 64em) {
+      // 1024px
+      @content;
+    }
+  } @else if $point == xl {
+    // Large Desktop: 1280px and up
+    @media (min-width: 80em) {
+      // 1280px
+      @content;
+    }
+  } @else if $point == xxl {
+    // Extra Large Desktop: 1440px and up
+    @media (min-width: 90em) {
+      // 1440px
+      @content;
+    }
+  }
+}
