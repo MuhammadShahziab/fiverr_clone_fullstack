@@ -11,8 +11,9 @@ import Orders from "./pages/orders/Orders";
 import Messages from "./pages/messages/Messages";
 import Message from "./pages/message/Message";
 import MyGigs from "./pages/myGigs/MyGigs";
+import Gig from "./pages/gig/Gig";
+
 import "./App.scss";
-import Gig from "./pages/gig/GIg";
 const App = () => {
   const Layout = () => {
     return (
