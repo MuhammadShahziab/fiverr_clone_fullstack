@@ -1,6 +1,7 @@
 import React from "react";
 import "./MyGigs.scss";
 import { Link } from "react-router-dom";
+import Pagination from "../../components/pagination/Pagination";
 const MyGigs = () => {
   return (
     <div className="mygigs layout">
@@ -217,6 +218,7 @@ const MyGigs = () => {
           </tr>
         </table>
       </div>
+      <Pagination totalPages={6} currentPage={1} />
     </div>
   );
 };

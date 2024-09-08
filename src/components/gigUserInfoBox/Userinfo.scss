@@ -5,9 +5,7 @@
   align-items: center;
   gap: 10px;
   margin-top: 18px;
-  @include sm {
-    justify-content: space-between;
-  }
+
   .pp {
     width: 70px;
     height: 70px;

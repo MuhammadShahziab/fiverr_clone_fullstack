@@ -1,6 +1,7 @@
 import React from "react";
 import "./Messages.scss";
 import { Link } from "react-router-dom";
+import Pagination from "../../components/pagination/Pagination";
 const Messages = () => {
   const currentUser = {
     id: 1,
@@ -84,6 +85,7 @@ const Messages = () => {
           </tr>
         </table>
       </div>
+      <Pagination totalPages={6} currentPage={1} />
     </div>
   );
 };

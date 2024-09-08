@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Navbar.scss";
 import { Link } from "react-router-dom";
+import { IoCloseOutline } from "react-icons/io5";
+import { TbMenuDeep } from "react-icons/tb";
 const Navbar = () => {
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
@@ -55,17 +57,15 @@ const Navbar = () => {
       <div className="navbar">
         <div className="container">
           {openMenu ? (
-            <img
-              src="/img/close.png"
-              className="menuImg close"
+            <IoCloseOutline
+              className="menuIcon close"
               onClick={() => setOpenMenu(!openMenu)}
-            ></img>
+            ></IoCloseOutline>
           ) : (
-            <img
-              src="/img/menu.png"
+            <TbMenuDeep
               onClick={() => setOpenMenu(!openMenu)}
-              className="menuImg"
-            ></img>
+              className="menuIcon"
+            ></TbMenuDeep>
           )}
           <div className="logo_search">
             <Link to="/" className="link">

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Orders.scss";
+import Pagination from "../../components/pagination/Pagination";
 const Orders = () => {
   const currentUser = {
     id: 1,
@@ -218,6 +219,7 @@ const Orders = () => {
           </tr>
         </table>
       </div>
+      <Pagination totalPages={6} currentPage={1} />
     </div>
   );
 };
