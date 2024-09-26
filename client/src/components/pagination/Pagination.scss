@@ -1,0 +1,67 @@
+@import "./../../styles/variables.scss";
+@import "./../../styles/resposive.scss";
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+
+  .pagination-button {
+    border: 1px solid lightgray;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    background-color: white;
+    padding: 0px !important;
+    color: gray;
+    cursor: pointer;
+
+    // Responsive adjustments
+    @include sm {
+      width: 35px;
+      height: 35px;
+    }
+
+    // Disabled state
+    &.disabled {
+      cursor: default;
+      opacity: 0.8; // Makes the button look disabled with lower opacity
+      background-color: white; // Keeps the background color consistent
+      color: lightgray; // Makes the text lighter to match the disabled state
+
+      &:hover {
+        background-color: white; // No hover effect when disabled
+      }
+    }
+
+    &:hover {
+      background-color: $background; // Hover color from variables
+    }
+  }
+
+  .pagination-num {
+    font-size: 20px;
+    border: none;
+    background-color: white;
+    color: gray;
+    cursor: pointer;
+
+    // Active state styling
+    &.active {
+      font-weight: 700;
+      color: $black; // Text color for the active page number
+      border-bottom: 1px solid $black; // Active page underline
+    }
+
+    // Responsive adjustments
+    @include sm {
+      font-size: 17px;
+    }
+  }
+}

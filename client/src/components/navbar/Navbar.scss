@@ -1,0 +1,403 @@
+@import "./../../styles/variables.scss";
+@import "./../../styles/resposive.scss";
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  background-color: white;
+  @include sm {
+    position: relative;
+  }
+
+  .container {
+    padding: 20px 0px;
+    display: flex;
+    max-width: 1366px;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: auto;
+
+    margin-right: auto;
+    @include lg {
+      max-width: 1290px;
+    }
+    @include md {
+      max-width: 768px;
+      padding: 20px;
+    }
+    @include sm {
+      max-width: 640px;
+      padding: 10px 20px;
+    }
+
+    .menuIcon {
+      display: none;
+      @include sm {
+        width: 30px;
+        height: 25px;
+        color: gray;
+        padding: 0px !important;
+        display: flex;
+      }
+    }
+
+    .logo_search {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 45%;
+      gap: 40px;
+      @include sm {
+        width: max-content;
+      }
+
+      .search {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        transition: 0.5s all ease;
+        opacity: 0;
+        position: relative;
+        &.active {
+          opacity: 100;
+        }
+
+        @include md {
+          display: none;
+        }
+
+        input {
+          border: 1px solid lightgray;
+          border-radius: 5px 0px 0px 5px;
+          outline: none;
+          background-color: transparent;
+          flex: 1;
+          color: gray;
+          font-size: 19px;
+          padding: 8.5px 5px;
+          padding-left: 20px;
+          font-weight: 400;
+          &:focus {
+            border: 1px solid black;
+          }
+        }
+
+        button {
+          background-color: #1c1c1d;
+          border: none;
+          outline: none;
+          padding: 12px 15px;
+          border-radius: 0px 5px 5px 0px;
+          img {
+            width: 15px;
+            height: 15px;
+          }
+        }
+      }
+
+      .logo {
+        font-size: 34px;
+        font-weight: bold;
+
+        @include sm {
+          font-size: 25px;
+          font-size: bold;
+        }
+
+        .text {
+          color: #404145;
+        }
+        .dot {
+          color: $green;
+        }
+      }
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      color: gray;
+      cursor: pointer;
+      .notificationIcons {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        position: relative;
+        span {
+          padding: 8px !important;
+          border-radius: 50% !important;
+        }
+        .unRead {
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          width: 5px;
+          height: 5px;
+          background-color: rgb(218, 5, 5);
+          border-radius: 50%;
+        }
+      }
+      span {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        white-space: nowrap;
+        padding: 10px 13px;
+        @include sm {
+          display: none;
+        }
+
+        img {
+          width: 16px;
+          height: 16px;
+        }
+        &:hover {
+          color: #1dbf73;
+        }
+      }
+      span:nth-child(-n + 2) {
+        &:hover {
+          background-color: #f5f5f5; // Set your desired background color here
+          color: inherit;
+          border-radius: 10px;
+        }
+      }
+      button {
+        color: #1dbf73;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: 1px solid #19a463;
+        background-color: transparent;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.2s all ease;
+
+        &:hover {
+          background-color: #19a463;
+          color: white;
+        }
+
+        @include sm {
+          padding: 7px 14px;
+        }
+      }
+
+      .user {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding: 0px !important;
+        margin: 0px !important;
+
+        position: relative;
+        img {
+          width: 38px;
+          height: 38px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+        p {
+          @include profileColor;
+          width: 40px !important;
+          height: 40px !important;
+        }
+        .options {
+          width: 200px;
+          position: absolute;
+          top: 45px;
+          right: 0px;
+          padding: 15px 5px;
+          border-radius: 10px;
+          background-color: white;
+          display: flex;
+          flex-direction: column;
+          border: 1px solid lightgray;
+          font-weight: 300;
+          color: gray;
+          z-index: 1;
+          .link {
+            padding: 5px 20px;
+            border-radius: 5px;
+            &:hover {
+              background-color: $background;
+            }
+          }
+        }
+      }
+    }
+  }
+  hr {
+    width: calc(100% - 2px);
+    height: 0;
+    border-top: 0.1px solid #ebe9e9;
+  }
+
+  .bottomMenu {
+    position: relative;
+    img {
+      position: absolute;
+      width: 20px;
+      top: 8px;
+      cursor: pointer;
+      @include md {
+        display: none;
+      }
+    }
+    img:first-child {
+      left: 3px;
+    }
+    img:nth-child(2) {
+      right: 3px;
+    }
+    .menu {
+      margin: 0px auto;
+      padding: 10px 0px;
+      position: relative;
+      max-width: 1366px;
+      margin-left: auto;
+
+      margin-right: auto;
+      display: flex;
+      overflow-x: auto;
+      font-weight: 500;
+      color: #222325;
+      font-family: "Montserrat", sans-serif;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      @include lg {
+        max-width: 1290px;
+      }
+
+      .menuLink {
+        min-width: 155px;
+        text-align: center;
+        padding-right: 10px;
+        width: max-content !important;
+      }
+
+      @include md {
+        max-width: 768px;
+        padding: 20px;
+        margin: 0px;
+      }
+      @include sm {
+        display: none;
+        margin: 0px;
+      }
+    }
+  }
+}
+
+.sidebar {
+  position: absolute;
+  top: 53px; /* Adjust this value to match your navbar height */
+  left: -70%; /* Start off-screen */
+  background-color: white;
+  height: calc(100vh - 53px); /* Subtract the navbar's height */
+  z-index: 1000;
+  transition: left 0.3s ease; /* Smooth slide transition */
+
+  @include sm {
+    width: 70%;
+  }
+  &.active {
+    left: 0; /* Slide in when active */
+  }
+
+  .user {
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+    justify-content: start;
+    img {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    span {
+      color: #000; /* Adjusted color */
+      font-weight: 500;
+    }
+  }
+  .main_div {
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 40px 0px;
+    padding: 0px 10px;
+
+    max-height: 77vh;
+    overflow-y: scroll;
+    .top {
+      .sidelink {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 5px 0px;
+        color: #555;
+        border-radius: 10px;
+        padding: 10px;
+        &:hover {
+          background-color: #f5f5f5;
+        }
+
+        img {
+          width: 15px;
+        }
+      }
+
+      .dropdown {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        padding-left: 30px;
+        gap: 10px;
+
+        .menuLink {
+          padding: 8px 0;
+          color: #555;
+        }
+      }
+    }
+  }
+  .bottom {
+    h2 {
+      color: $black;
+      font-size: 20px;
+      padding-left: 10px;
+      font-weight: 500;
+    }
+    .sidelink {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 5px 0px;
+      color: #555;
+      border-radius: 10px;
+      padding: 10px;
+      &:hover {
+        background-color: #f5f5f5;
+      }
+
+      img {
+        width: 15px;
+      }
+    }
+  }
+}
+
+/* Prevent body scroll when the sidebar is open */
+body.no-scroll {
+  overflow: hidden;
+}

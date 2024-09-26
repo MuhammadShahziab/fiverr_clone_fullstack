@@ -1,0 +1,138 @@
+@import "./../../styles/variables.scss";
+@import "./../../styles/resposive.scss";
+.message {
+  margin-top: 100px;
+  @include sm {
+    margin-top: 0px;
+  }
+  .container {
+    .breadcrumbs {
+      @include breadcrumbs;
+
+      @include sm {
+        display: none;
+      }
+    }
+    .messages {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 20px;
+      height: 340px;
+      padding: 20px;
+      overflow-y: scroll;
+      border-radius: 7px;
+      background-color: #fafafa;
+
+      @include sm {
+        height: calc(
+          100vh - 21vh
+        ); // Adjusted to account for 10vh for the top nav and 15vh for the bottom text area
+        padding: 14px 6px 10px 10px !important;
+        border-radius: 0px;
+        margin: 0px;
+      }
+      .item {
+        display: flex;
+        max-width: 50%;
+        gap: 15px;
+        font-size: 15px;
+
+        @include sm {
+          max-width: 80%;
+          gap: 10px !important;
+        }
+
+        .avatar {
+          width: 10px;
+          height: 10px;
+          border-radius: 50% !important;
+          color: white !important;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-weight: 500;
+          text-transform: capitalize;
+          @include sm {
+            width: 6px;
+            height: 6px;
+          }
+        }
+
+        &.owner {
+          flex-direction: row-reverse;
+          align-self: flex-end;
+
+          p {
+            background-color: #27da86;
+            color: white;
+            border-radius: 8px 0px 8px 8px;
+            padding: 13px !important;
+            display: flex;
+            align-items: center;
+
+            @include sm {
+              padding: 10px !important;
+            }
+          }
+        }
+        p {
+          background-color: rgb(243, 240, 240);
+          border-radius: 0px 8px 8px 8px;
+          padding: 13px;
+          color: gray;
+          font-weight: 400;
+          @include sm {
+            padding: 10px !important;
+          }
+        }
+        img {
+          width: 38px;
+          height: 38px;
+          object-fit: cover;
+          border-radius: 50%;
+          @include sm {
+            width: 33px;
+            height: 33px;
+          }
+        }
+      }
+    }
+    .write {
+      display: flex;
+      flex-direction: row !important;
+      align-items: center;
+      gap: 10px;
+      @include sm {
+        gap: 6px;
+      }
+      input {
+        border: 1px solid lightgray;
+        padding: 15px;
+        width: 100%;
+        border-radius: 10px;
+        font-size: 17px;
+        outline: none;
+        @include sm {
+          font-size: 15px;
+          width: 70%;
+        }
+      }
+      .sendBtn {
+        background-color: royalblue;
+        border: none;
+        width: 50px;
+        border-radius: 10px;
+        color: white;
+        cursor: pointer;
+
+        margin: 0px !important;
+        font-weight: 500;
+
+        @include sm {
+          width: 50px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,156 @@
+@import "./../../styles/variables.scss";
+@import "./../../styles/resposive.scss";
+.favourite {
+  .heading {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include sm {
+      margin-top: 15px;
+      padding: 0px 20px;
+    }
+    .title {
+      color: #555;
+      font-size: 32px;
+
+      @include sm {
+        font-size: 20px;
+      }
+    }
+    .desc {
+      max-width: 500px;
+      font-size: 18px;
+      color: gray;
+      @include sm {
+        font-size: 15px;
+      }
+    }
+  }
+  .lists {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+    @include md {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include sm {
+      grid-template-columns: repeat(1, 1fr);
+      margin-top: 16px;
+    }
+    .create {
+      background-color: #f5f5f5;
+      height: 270px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      cursor: pointer;
+      span {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        background-color: $green;
+      }
+      p {
+        color: $green;
+        font-size: 20px;
+      }
+    }
+
+    .listCard {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      .imagegrid {
+        width: 100%;
+        height: 200px;
+        display: flex;
+        gap: 6px;
+
+        .left {
+          flex: 2;
+          background-color: #f5f5f5;
+          border-radius: 5px;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+          }
+        }
+        .right {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          gap: 6px;
+
+          div {
+            background-color: #f5f5f5;
+            flex: 1;
+            border-radius: 5px;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              border-radius: 5px;
+            }
+          }
+        }
+      }
+
+      h3 {
+        color: #555;
+        font-weight: 500;
+        margin-top: 10px;
+      }
+
+      .footer {
+        display: flex;
+        padding: 0px;
+        margin: 0px;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        p {
+          color: $black;
+          font-size: 16px;
+        }
+
+        .dropdown {
+          position: absolute;
+          background-color: white;
+          width: 150px;
+          height: max-content;
+          border-radius: 10px;
+          border: 1px solid lightgray;
+          display: flex;
+          flex-direction: column;
+          right: 20px;
+          top: 20px;
+          padding: 10px 5px;
+          .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 7px;
+            border-radius: 3px;
+            &:hover {
+              background-color: #f1f5f9;
+            }
+          }
+        }
+      }
+    }
+  }
+}

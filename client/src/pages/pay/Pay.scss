@@ -1,0 +1,63 @@
+@import "./../../styles/variables.scss";
+@import "./../../styles/resposive.scss";
+
+.pay {
+  margin-top: 140px;
+  width: 100%;
+  @include sm {
+    width: 90%;
+    margin-top: 30px;
+    height: 100vh;
+  }
+
+  .box {
+    display: flex;
+
+    @include sm {
+      flex-direction: column-reverse;
+    }
+    .left {
+      flex: 1;
+      display: flex;
+      margin-top: 50px;
+      gap: 50px;
+
+      @include sm {
+        flex-direction: column;
+        margin-top: 0px;
+      }
+
+      img {
+        width: 300px;
+        border-radius: 10px;
+        height: 200px;
+        @include sm {
+          width: 100%;
+        }
+      }
+      .info {
+        height: max-content;
+        width: 100%;
+        .item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px;
+          border-bottom: 0.5px solid lightgray;
+          p {
+            font-size: 17px;
+          }
+          p:first-child {
+            font-weight: 500;
+          }
+          p:last-child {
+            color: gray;
+          }
+        }
+      }
+    }
+    .right {
+      flex: 1;
+    }
+  }
+}

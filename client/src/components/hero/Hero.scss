@@ -1,0 +1,224 @@
+@import "./../../styles/variables.scss";
+@import "./../../styles/resposive.scss";
+
+.hero {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+
+  @include md {
+    padding: 0px 20px;
+    margin-top: 100px;
+  }
+
+  @include sm {
+    padding: 0px;
+    margin-top: 0px;
+  }
+
+  .container {
+    color: white;
+    display: flex;
+    margin-top: 20px;
+    height: 450px;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #013a12, #026c31);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 100px;
+      left: 60;
+      width: 90%;
+      height: 100px;
+      // background: inherit;
+      // filter: blur(60px);
+
+      z-index: 1;
+    }
+
+    @include sm {
+      border-radius: 0px;
+      margin-top: 0px;
+      height: 290px;
+      overflow: visible; // Ensure the container does not clip the suggestions
+    }
+
+    .inner_div {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      position: relative;
+      margin-top: 40px;
+      z-index: 2;
+
+      @include md {
+        width: 70%;
+        margin-top: 0px;
+        gap: 20px;
+      }
+
+      @include sm {
+        width: 100%;
+        margin-top: 0px;
+        gap: 40px;
+      }
+
+      h1 {
+        font-size: 60px;
+        font-weight: 400;
+        text-align: center;
+
+        @include md {
+          font-size: 40px;
+          padding: 0px 20px;
+        }
+
+        @include sm {
+          font-size: 30px;
+          padding: 0px 20px;
+        }
+      }
+
+      .search {
+        background-color: white;
+        width: 80%;
+        display: flex;
+        border-radius: 12px;
+        padding: 7px 8px 7px 15px;
+        position: relative;
+
+        @include md {
+          padding: 6px 7px 6px 12px;
+        }
+
+        @include sm {
+          width: 90%;
+          padding: 4px 4px 4px 10px;
+        }
+
+        input {
+          outline: none;
+          border: none;
+          flex: 1;
+          font-size: 18px;
+
+          @include sm {
+            width: 90%;
+            font-size: 15px;
+          }
+        }
+
+        .search_button {
+          background-color: #013a12;
+          border-radius: 10px;
+          border: none;
+          cursor: pointer;
+          padding: 15px 15px;
+
+          @include md {
+            padding: 13px;
+          }
+
+          @include sm {
+            padding: 11px;
+          }
+
+          img {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+
+      .trusted_by {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 80%;
+
+        @include sm {
+          display: none;
+        }
+
+        span {
+          color: #809d89;
+          font-weight: 500;
+          font-size: 14px;
+        }
+
+        img {
+          height: 50px;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .images {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; // Prevent images from interfering with clicks
+      overflow: hidden;
+      .image {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        object-fit: cover;
+        border-radius: 12px;
+        overflow: hidden; // Ensure images are properly constrained
+
+        @include md {
+          height: 150px;
+          width: 150px;
+        }
+
+        @include sm {
+          display: none; // Hide images on small screens
+        }
+
+        &:nth-of-type(1) {
+          top: 0;
+          right: 150px;
+          width: 130px;
+          height: 130px;
+
+          @include md {
+            right: 24px;
+          }
+        }
+
+        &:nth-of-type(2) {
+          top: 0;
+          left: 80px;
+          border: 1px solid orange;
+
+          @include md {
+            left: 15px;
+          }
+        }
+
+        &:nth-of-type(3) {
+          bottom: -10px;
+          left: -10px;
+          width: 150px;
+          height: 150px;
+          border: 1px solid blue;
+        }
+
+        &:nth-of-type(4) {
+          bottom: 50px;
+          right: -30px;
+          border: 1px solid palevioletred;
+        }
+      }
+    }
+  }
+}

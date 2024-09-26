@@ -1,0 +1,88 @@
+@import "./../../styles/variables.scss";
+@import "./../../styles/resposive.scss";
+.mygigs {
+  margin-top: 60px;
+
+  @include sm {
+    margin-top: 0px;
+  }
+
+  .container {
+    padding: 50px 0px;
+    @include sm {
+      padding: 20px 0px;
+    }
+
+    .title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 19px;
+      color: #404145;
+      @include sm {
+        padding: 0px 20px;
+        font-size: 10px;
+      }
+
+      button {
+        background-color: #1dbf73;
+        color: white;
+        border: none;
+        font-weight: 500;
+        border: none;
+        border-radius: 2px;
+        padding: 10px;
+        font-size: 15px !important;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    }
+
+    table {
+      width: 100%;
+      margin-top: 30px;
+      th {
+        background-color: #f5f5f5;
+      }
+      th,
+      td {
+        text-align: center;
+        padding: 10px; // Add some padding for better spacing
+      }
+
+      th:nth-child(2), // "Title" column header
+      td:nth-child(2) {
+        // "Title" column data cells
+        width: 30%; // Adjust the width of the "Title" column as needed
+        text-align: left; // Optional: Align text to the left for better readability
+      }
+
+      tr {
+        height: 50px;
+
+        td {
+          img {
+            width: 50px;
+            height: 25px;
+            object-fit: contain;
+          }
+          .trash {
+            width: 20px;
+            cursor: pointer;
+          }
+        }
+
+        td.actions {
+          display: flex;
+          gap: 7px;
+          justify-content: center;
+          align-items: center;
+        }
+
+        &:nth-child(even) {
+          background-color: #1dbf730f;
+        }
+      }
+    }
+  }
+}

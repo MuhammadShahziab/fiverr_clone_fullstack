@@ -1,0 +1,158 @@
+@import "./../../styles/variables.scss";
+@import "./../../styles/resposive.scss";
+
+.gigs {
+  .container {
+    padding: 30px 0px;
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 120px;
+
+    @include md {
+      margin-top: 0px;
+      padding: 20px 20px;
+    }
+
+    .breadcrumbs {
+      color: #555;
+      font-weight: 400;
+      font-size: 15px;
+    }
+    h1 {
+      color: $black;
+      margin-top: 15px;
+    }
+    p {
+      color: gray;
+      font-weight: 400;
+
+      margin-top: 15px;
+
+      @include md {
+        margin-top: 8px;
+        font-size: 18px;
+        line-height: 26px;
+      }
+    }
+    .menu {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0px 14px;
+      margin-top: 20px;
+
+      .left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        span {
+          font-weight: 500;
+          @include sm {
+            display: none;
+          }
+        }
+        input {
+          padding: 8px;
+          outline: none;
+          border: 1px solid lightgray;
+          border-radius: 5px;
+
+          @include sm {
+            width: 40px;
+          }
+
+          &::placeholder {
+            color: gray;
+          }
+        }
+        .applybtn {
+          background-color: #02652d;
+          border: none;
+          padding: 7px 20px;
+          border-radius: 7px;
+          color: white;
+          font-size: 15px !important;
+          cursor: pointer;
+          font-weight: 400;
+        }
+        @include sm {
+          padding: 0px !important;
+        }
+      }
+      .right {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        gap: 10px;
+        .sortby {
+          color: #555;
+          font-weight: 400;
+          @include sm {
+            display: none;
+          }
+        }
+        .sortType {
+          font-weight: 500;
+          border: 1px solid lightgray;
+          padding: 5px 10px;
+          border-radius: 5px;
+          cursor: pointer;
+
+          @include sm {
+            padding: 4px 6px;
+            font-size: 14px;
+          }
+        }
+        img {
+          width: 15px;
+          cursor: pointer;
+        }
+        .rightMenu {
+          padding: 10px;
+          background-color: white;
+          border-radius: 5px;
+          border: 0.5px solid lightgray;
+          position: absolute;
+          top: 35px;
+          right: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          z-index: 1;
+          color: #555;
+          span {
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 3px;
+            &:hover {
+              background-color: skyblue;
+              color: white;
+            }
+          }
+          @include sm {
+            top: 49px;
+            width: 110px;
+          }
+        }
+      }
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); // Show 4 cards per row
+      gap: 20px; // Add spacing between cards
+      padding: 20px 0px;
+      margin-top: 18px;
+
+      @include md {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      @include sm {
+        grid-template-columns: repeat(1, 1fr);
+        margin-top: 10px;
+      }
+    }
+  }
+}

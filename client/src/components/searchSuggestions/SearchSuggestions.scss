@@ -1,0 +1,47 @@
+@import "./../../styles/variables.scss";
+@import "./../../styles/resposive.scss";
+.suggestions {
+  background-color: white;
+  color: black;
+  width: 95%;
+  padding: 10px;
+  border-radius: 4px;
+  position: absolute;
+  top: 65px;
+  left: 5px;
+  z-index: 1000; // Increase z-index to make sure it's above images
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  overflow-y: auto;
+
+  @include md {
+    width: 90%;
+  }
+  @include sm {
+    width: 90%;
+  }
+  .tags {
+    display: flex;
+    flex-direction: column;
+
+    .tag {
+      padding: 10px 5px;
+      font-weight: 500;
+      margin-top: 0px;
+      cursor: pointer;
+      &:hover {
+        background-color: rgb(243, 240, 240);
+      }
+    }
+  }
+  .suggestion {
+    margin-top: 0px;
+    padding: 10px 5px;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(243, 240, 240);
+    }
+  }
+}
