@@ -12,7 +12,7 @@ import toast from "react-hot-toast";
 import DeleteConfirm from "../../components/deleteConfirmation/DeleteConfirm";
 import FavListPopup from "../../components/favListPopup/FavListPopUp";
 
-const FavouriteList = () => {
+const FavouriteListGigs = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [deletePopup, setDeletePopup] = useState(false);
   const [popup, setPopup] = useState(false);
@@ -144,4 +144,4 @@ const FavouriteList = () => {
   );
 };
 
-export default FavouriteList;
+export default FavouriteListGigs;
