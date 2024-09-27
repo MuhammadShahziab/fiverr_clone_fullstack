@@ -29,7 +29,7 @@ const connect = async () => {
 };
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ origin:[""], credentials: true }));
+app.use(cors({ origin:["https://fiverr-clone-frontend-beta.vercel.app/"], credentials: true }));
 app.use("/api/users", userRoute);
 app.use("/api/gigs", gigRoute);
 app.use("/api/orders", orderRoute);
