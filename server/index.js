@@ -13,10 +13,10 @@ import favListRoute from "./routes/favList.route.js";
 import authRoute from "./routes/auth.route.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import path from "path";
+// import path from "path";
 const app = express();
 dotenv.config();
-const _dirname = path.resolve();
+// const _dirname = path.resolve();
 const connect = async () => {
   mongoose.set("strictQuery", true);
   try {
@@ -47,10 +47,11 @@ app.use((err, req, res, next) => {
   return res.status(errorStatus).send(errorMessage);
 });
 
-app.use(express.static(path.join(_dirname, "/client/dist")));
-app.get("*", (_, res) => {
-  res.sendFile(path.resolve(_dirname, "client", "dist", "index.html"));
-});
+// app.use(express.static(path.join(_dirname, "/client/dist")));
+// app.get("*", (_, res) => {
+//   res.sendFile(path.resolve(_dirname, "client", "dist", "index.html"));
+// });
+
 app.listen(8800, () => {
   connect();
   console.log("Backend Server is running");

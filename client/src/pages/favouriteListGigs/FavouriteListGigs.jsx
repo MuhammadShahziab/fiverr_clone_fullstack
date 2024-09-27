@@ -1,17 +1,19 @@
 import React from "react";
-import "./FavouriteGigs.scss";
+import "./FavouriteListGigs.scss";
 import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
 import newRequest from "../../utils/newrequest";
 import GetColor from "../../components/GetColor";
 import GigCard from "../../components/gigCard/GigCard";
-const FavouriteGigs = () => {
+const FavouriteListGigs = () => {
   const { id } = useParams();
 
   const { isLoading, error, data } = useQuery({
     queryKey: ["favListGigs"],
     queryFn: () => newRequest.get(`/favList/${id}`).then((res) => res.data),
   });
+
+  console.log(data, "chwck gig");
 
   const favGigs = data && data[0];
   return isLoading ? (
@@ -61,4 +63,4 @@ const FavouriteGigs = () => {
   );
 };
 
-export default FavouriteGigs;
+export default FavouriteListGigs;

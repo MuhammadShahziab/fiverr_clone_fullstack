@@ -21,7 +21,8 @@ import {
 } from "@tanstack/react-query";
 import Pay from "./pages/pay/Pay";
 import Success from "./pages/success/Success";
-import FavouriteListGigs from "./pages/favouritesList/FavouriteListGigs";
+import FavouriteListGigs from "./pages/favouriteListGigs/FavouriteListGigs";
+import FavouriteList from "./pages/favouritesList/FavouriteList";
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -69,10 +70,11 @@ const App = () => {
         },
         {
           path: "/my_list",
-          element: <FavouriteListGigs />,
+          element: <FavouriteList />,
         },
         {
           path: "/my_list/:id",
+          element: <FavouriteListGigs />,
         },
         {
           path: "/add",
