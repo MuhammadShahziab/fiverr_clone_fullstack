@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const APIURL = "http://localhost:8800/api"; // Local development URL with HTTP
+const APIURL = "https://fiverr-clone-api.vercel.app/api"; // Local development URL with HTTP
 
 const newRequest = axios.create({
   baseURL: APIURL,
