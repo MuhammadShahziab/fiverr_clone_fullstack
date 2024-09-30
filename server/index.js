@@ -32,26 +32,12 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Define allowed origins for CORS (development and production)
-const allowedOrigins = [
-  process.env.CLIENT_URL || "http://localhost:5173", // Add your production client URL in the .env
-  "http://localhost:5173", // For local development
-];
-
 app.use(
   cors({
-    origin: function (origin, callback) {
-      // Allow requests with no origin (like mobile apps or curl requests)
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      } else {
-        return callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true, // Allow credentials (cookies, headers)
+    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    credentials: true, // Allow credentials (like cookies, headers)
   })
 );
-
 // Routes
 app.use("/api/users", userRoute);
 app.use("/api/gigs", gigRoute);
@@ -65,7 +51,6 @@ app.use("/api/favList", favListRoute);
 app.get("/api/health", (req, res) => {
   res.status(200).send("Backend is healthy");
 });
-
 // Error handling middleware
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
