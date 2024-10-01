@@ -31,14 +31,15 @@ export const deleteGig = async (req, res, next) => {
     next(error);
   }
 };
+
 export const getGig = async (req, res, next) => {
   try {
     const gig = await Gig.findById(req.params.id);
 
-    if (!gig) next(createError(404, "Gig not found!"));
+    if (!gig) return next(createError(404, "Gig not found!")); // Use return to stop execution
     res.status(200).send(gig);
   } catch (error) {
-    next(error);
+    next(error); // Properly pass the error to the error handler
   }
 };
 

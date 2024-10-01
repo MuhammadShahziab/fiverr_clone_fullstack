@@ -17,16 +17,18 @@ dotenv.config();
 const app = express();
 
 // MongoDB connection function
+mongoose.set("strictQuery", true);
 const connect = async () => {
-  mongoose.set("strictQuery", true);
   try {
-    await mongoose.connect(process.env.MONGO);
-    console.log("Connected to MongoDB!");
+    await mongoose.connect(process.env.MONGO, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log("MongoDB Connected!");
   } catch (error) {
     console.error("MongoDB connection failed:", error);
   }
 };
-
 // Middleware to parse JSON and cookies
 app.use(express.json());
 app.use(cookieParser());
@@ -34,7 +36,7 @@ app.use(cookieParser());
 // Define allowed origins for CORS (development and production)
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    origin: "http://localhost:5173",
     credentials: true, // Allow credentials (like cookies, headers)
   })
 );
