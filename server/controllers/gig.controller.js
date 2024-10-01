@@ -45,21 +45,26 @@ export const getGig = async (req, res, next) => {
 
 // Fetch Gigs Based on Search Query
 export const getGigs = async (req, res, next) => {
+  const start = Date.now();
   try {
     const q = req.query;
     const filters = {
       ...(q.userId && { userId: q.userId }),
       ...(q.cat && { cat: q.cat }),
-      ...(q.search && { $text: { $search: q.search } }), // Full-text search across indexed fields
+      ...(q.search && { $text: { $search: q.search } }),
       ...((q.min || q.max) && {
         price: {
-          ...(q.min && { $gte: q.min }),
-          ...(q.max && { $lte: q.max }),
+          ...(q.min && { $gte: Number(q.min) }),
+          ...(q.max && { $lte: Number(q.max) }),
         },
       }),
     };
 
     const gigs = await Gig.find(filters).sort({ [q.sort]: -1 });
+
+    const duration = Date.now() - start;
+    console.log(`Query executed in ${duration}ms`); // Log the duration
+
     res.status(200).send(gigs);
   } catch (error) {
     next(error);
