@@ -31,7 +31,7 @@ const Reviews = ({ gigId, gigDeliveryTime, gigPrice }) => {
     },
     onError: (error) => {
       console.log(error);
-      toast.error(`${error.response?.data || "Unknown error"}`);
+      toast.error(`${error.response?.data.message || "Unknown error"}`);
     },
   });
 

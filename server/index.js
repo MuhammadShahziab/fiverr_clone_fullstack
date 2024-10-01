@@ -39,6 +39,11 @@ app.use(
   })
 );
 // Routes
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
 app.use("/api/users", userRoute);
 app.use("/api/gigs", gigRoute);
 app.use("/api/orders", orderRoute);
