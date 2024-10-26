@@ -36,7 +36,7 @@ app.use(cookieParser());
 // Define allowed origins for CORS (development and production)
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: process.env.API_URL,
     credentials: true, // Allow credentials (like cookies, headers)
   })
 );
