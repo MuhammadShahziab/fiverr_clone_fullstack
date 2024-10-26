@@ -12,6 +12,9 @@ import favListRoute from "./routes/favList.route.js";
 import authRoute from "./routes/auth.route.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import path from "path";
+
+const __dirname = path.resolve();
 
 dotenv.config();
 const app = express();
@@ -39,10 +42,6 @@ app.use(
 );
 // Routes
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-
 app.use("/api/users", userRoute);
 app.use("/api/gigs", gigRoute);
 app.use("/api/orders", orderRoute);
@@ -55,6 +54,13 @@ app.use("/api/favList", favListRoute);
 app.get("/api/health", (req, res) => {
   res.status(200).send("Backend is healthy");
 });
+
+app.use(express.static(path.join(__dirname, "/client/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
+});
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;

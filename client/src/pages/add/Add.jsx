@@ -16,6 +16,7 @@ const Add = () => {
 
   const [state, dispatch] = useReducer(gigReducer, initialState);
 
+  console.log(state, "state");
   const navigate = useNavigate();
 
   const queryClient = useQueryClient();
