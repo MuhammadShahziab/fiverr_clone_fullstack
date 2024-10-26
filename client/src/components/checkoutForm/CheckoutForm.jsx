@@ -29,7 +29,7 @@ const CheckoutForm = ({ gigId }) => {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: `http://localhost:5173/success?gigId=${gigId}`,
+        return_url: `https://fiverr-clone-fullstack-1.onrender.com/success?gigId=${gigId}`,
       },
     });
 
