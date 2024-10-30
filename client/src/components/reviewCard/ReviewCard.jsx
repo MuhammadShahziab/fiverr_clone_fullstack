@@ -26,7 +26,7 @@ const ReviewCard = ({ item, gigDeliveryTime, gigPrice }) => {
                 <img
                   src={data?.img || "/img/noavatar.jpg"}
                   alt="user"
-                  className="profile_img"
+                  className="profileImg"
                 />
               </div>
             ) : (

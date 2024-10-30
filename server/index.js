@@ -34,12 +34,12 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Define allowed origins for CORS (development and production)
-const corsOptions = {
-  origin: process.env.API_URL,
-  credentials: true,
-};
-
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: process.env.API_URL,
+    credentials: true,
+  })
+);
 // Routes
 
 app.use("/api/users", userRoute);
