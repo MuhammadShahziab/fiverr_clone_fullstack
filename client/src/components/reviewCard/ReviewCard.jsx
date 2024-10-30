@@ -21,19 +21,15 @@ const ReviewCard = ({ item, gigDeliveryTime, gigPrice }) => {
           "Something went wrong!"
         ) : (
           <div className="user">
-            {data?.img ? (
-              <div className="profile">
-                <img
-                  src={data?.img || "/img/noavatar.jpg"}
-                  alt="user"
-                  className="profileImg"
-                />
-              </div>
-            ) : (
-              <p style={{ backgroundColor: GetColor(data?.username) }}>
-                {data?.username.charAt()}
-              </p>
-            )}
+            <div className="profilee">
+              {data?.img ? (
+                <img src={data?.img} alt="prifile"></img>
+              ) : (
+                <p style={{ backgroundColor: GetColor(data?.username) }}>
+                  {data?.username.charAt()}
+                </p>
+              )}
+            </div>
 
             <div className="info">
               <span>{data.username}</span>
