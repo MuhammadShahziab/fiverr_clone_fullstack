@@ -1,7 +1,7 @@
 import React from "react";
 import "./SearchSuggestions.scss";
 
-const SearchSuggestions = ({ suggestions, onSuggestionClick }) => {
+const SearchSuggestions = ({ suggestions, onSuggestionClick, setSearch }) => {
   return (
     <div className="suggestions">
       {suggestions.map((suggestion, index) => (
@@ -9,7 +9,10 @@ const SearchSuggestions = ({ suggestions, onSuggestionClick }) => {
           <div
             key={index}
             className="suggestion"
-            onClick={() => onSuggestionClick(suggestion.cat)}
+            onClick={() => {
+              onSuggestionClick(suggestion.cat);
+              setSearch("");
+            }}
           >
             {suggestion.shortTitle || suggestion.cat}
             {/* Display the top tags for better suggestion context */}
@@ -20,7 +23,10 @@ const SearchSuggestions = ({ suggestions, onSuggestionClick }) => {
                 <span
                   key={i}
                   className="tag"
-                  onClick={() => onSuggestionClick(tag)}
+                  onClick={() => {
+                    onSuggestionClick(tag);
+                    setSearch("");
+                  }}
                 >
                   {tag}
                 </span>

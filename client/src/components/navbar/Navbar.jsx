@@ -161,6 +161,7 @@ const Navbar = () => {
                 <SearchSuggestions
                   suggestions={suggestions}
                   onSuggestionClick={handleSuggestionClick}
+                  setSearch={setSearch}
                 />
               )}
             </div>
@@ -242,9 +243,10 @@ const Navbar = () => {
                 {open && (
                   <div className="options">
                     <Link
-                      to={`/profile`}
+                      onClick={() => setOpen(false)}
                       className="link"
                       style={{ fontWeight: "bold" }}
+                      to={`/profile`}
                     >
                       {" "}
                       {currentUser?.username}
@@ -385,12 +387,19 @@ const Navbar = () => {
 
       <div className={`sidebar ${openMenu ? "active" : ""} `}>
         {currentUser ? (
-          <div className="user">
-            <img src="/img/bannerr/men2.png"></img>{" "}
+          <Link
+            className="user link"
+            to={`/profile`}
+            onClick={() => setOpenMenu(false)}
+          >
+            <img src={currentUser?.img || "/img/noavatar.png"}></img>{" "}
             <span>{currentUser?.username} </span>
-          </div>
+          </Link>
         ) : (
-          <button>Join Fiverr</button>
+          <Link onClick={() => setOpenMenu(false)} className="link" to="/login">
+            {" "}
+            <button>Join Fiverr</button>
+          </Link>
         )}
         <div className="main_div">
           <div className="top">

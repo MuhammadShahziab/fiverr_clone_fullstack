@@ -23,6 +23,7 @@ import Pay from "./pages/pay/Pay";
 import Success from "./pages/success/Success";
 import FavouriteListGigs from "./pages/favouriteListGigs/FavouriteListGigs";
 import FavouriteList from "./pages/favouritesList/FavouriteList";
+import Profile from "./pages/profile/Profile";
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -91,6 +92,10 @@ const App = () => {
         {
           path: "/login",
           element: <Login />,
+        },
+        {
+          path: "/profile",
+          element: <Profile />,
         },
         {
           path: "/pay/:id",

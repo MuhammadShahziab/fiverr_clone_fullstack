@@ -21,3 +21,29 @@ export const getUser = async (req, res, next) => {
     next(error);
   }
 };
+
+export const updateUser = async (req, res, next) => {
+  const { phone, desc, img, country } = req.body; // updated field here
+  try {
+    const user = await User.findById(req.userId);
+
+    if (!user) {
+      return next(createError(404, "User not found"));
+    }
+    const updatedUser = await User.findByIdAndUpdate(
+      req.userId,
+      {
+        $set: {
+          phone,
+          desc,
+          img,
+          country, // updated field here
+        },
+      },
+      { new: true }
+    );
+    res.status(200).send(updatedUser);
+  } catch (error) {
+    next(error);
+  }
+};

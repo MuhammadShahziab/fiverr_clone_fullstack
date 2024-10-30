@@ -318,6 +318,8 @@
     align-items: center;
     padding: 0px 20px;
     justify-content: start;
+    margin-left: 20px;
+    margin-top: 10px;
     img {
       width: 40px;
       height: 40px;
@@ -329,6 +331,14 @@
       color: #000; /* Adjusted color */
       font-weight: 500;
     }
+  }
+  button {
+    border: 1px solid #1dbf73;
+    outline: none;
+    padding: 5px 10px;
+    margin-left: 20px;
+    margin-top: 10px;
+    background-color: transparent;
   }
   .main_div {
     overflow-x: hidden;

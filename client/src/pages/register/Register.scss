@@ -19,7 +19,6 @@
     flex-direction: column;
     height: 70vh;
     text-align: center;
-
     padding: 0px !important;
     margin: 0px !important;
     overflow: hidden;
@@ -31,6 +30,14 @@
       margin-top: 0px;
       justify-content: start;
       padding: 0px 20px !important;
+    }
+    p {
+      margin-top: 40px;
+      color: gray;
+      span {
+        color: #1dbf73;
+        cursor: pointer;
+      }
     }
 
     h2 {

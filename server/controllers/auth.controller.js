@@ -3,7 +3,18 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import createError from "../utils/createError.js";
 export const register = async (req, res, next) => {
+  const { username, email } = req.body;
+
   try {
+    const user = await User.findOne({ username });
+    if (user) {
+      return next(createError(400, "Username is already exist!"));
+    }
+    const emailUser = await User.findOne({ email });
+    if (emailUser) {
+      return next(createError(400, "Email is already exist!"));
+    }
+
     const hashPassword = bcrypt.hashSync(req.body.password, 5);
     const newUser = new User({
       ...req.body,
@@ -19,16 +30,15 @@ export const register = async (req, res, next) => {
 
 export const login = async (req, res, next) => {
   try {
-    console.log("Received login request");
-
     const user = await User.findOne({ username: req.body.username });
 
     if (!user) {
-      return next(createError(404, "User not found!"));
+      return res.status(400).json({ message: "User not found!" });
     }
+
     const isCorrect = bcrypt.compareSync(req.body.password, user.password);
     if (!isCorrect) {
-      return next(createError(400, "Wrong Password or username!"));
+      return res.status(400).json({ message: "Wrong password or username!" });
     }
 
     const token = jwt.sign(
@@ -48,6 +58,7 @@ export const login = async (req, res, next) => {
     next(error);
   }
 };
+
 export const logout = async (req, res) => {
   res
     .clearCookie("accesstoken", {

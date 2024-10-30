@@ -15,18 +15,22 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError(null); // Clear previous errors before starting the request
+
     try {
-      setLoading(true);
       const res = await newRequest.post("/auth/login", { username, password });
 
-      localStorage.setItem("currentUser", JSON.stringify(res?.data));
-      if (res?.status === 200) {
+      if (res.status === 200) {
+        localStorage.setItem("currentUser", JSON.stringify(res.data));
+        toast.success("Login successful");
         navigate("/");
-        toast.success("login");
       }
     } catch (error) {
-      setError(error.response?.data || "An error occurred");
-      toast.error(error.response?.data || "An error occurred");
+      const errorMessage =
+        error.response?.data?.message || "An error occurred. Please try again.";
+      setError(errorMessage);
+      toast.error(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -42,34 +46,44 @@ function Login() {
           <h1>Sign in</h1>
 
           <div className="input_div">
-            <label htmlFor="">Username</label>
+            <label htmlFor="username">Username</label>
             <input
               name="username"
               type="text"
               placeholder="Shahzaib"
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => {
+                setUsername(e.target.value);
+                if (error) setError(null); // Clear error when user starts typing
+              }}
+              required
             />
           </div>
           <div className="input_div">
-            <label htmlFor="">Password</label>
+            <label htmlFor="password">Password</label>
             <input
               name="password"
               type="password"
               placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                if (error) setError(null); // Clear error when user starts typing
+              }}
+              required
             />
           </div>
 
-          <span
-            style={{
-              color: "red",
-              fontWeight: 500,
-              textAlign: "center",
-              fontSize: "14px",
-            }}
-          >
-            {error && error}{" "}
-          </span>
+          {error && (
+            <span
+              style={{
+                color: "red",
+                fontWeight: 500,
+                textAlign: "center",
+                fontSize: "14px",
+              }}
+            >
+              {error}
+            </span>
+          )}
 
           <button disabled={loading || !username || !password} type="submit">
             Login {loading && <ClipLoader color="white" size={19} />}

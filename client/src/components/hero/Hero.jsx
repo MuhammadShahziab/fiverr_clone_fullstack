@@ -30,7 +30,8 @@ const Hero = () => {
 
   const handleSuggestionClick = (suggestion) => {
     setSearch(suggestion);
-    navigate(`/gigs?search=${suggestion?.cat}`);
+    console.log(suggestion, "check suggestion");
+    navigate(`/gigs?search=${suggestion}`);
   };
 
   return (

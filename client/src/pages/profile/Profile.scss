@@ -1,0 +1,123 @@
+@import "./../../styles/variables.scss";
+@import "./../../styles/resposive.scss";
+
+.profile {
+  margin-top: 140px;
+  min-height: 100vh;
+  @include sm {
+    margin-top: 13px;
+  }
+  h1 {
+    color: $black;
+    font-size: 22px;
+    @include sm {
+      padding-left: 20px;
+      font-size: 19px;
+    }
+  }
+  .container {
+    display: flex;
+    margin-top: 50px;
+    @include sm {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 15px;
+    }
+    .left {
+      width: 40%;
+      display: flex;
+      justify-content: center;
+      .user {
+        border: 2px solid $green;
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include sm {
+          width: 140px;
+          height: 140px;
+        }
+        img {
+          width: 190px;
+          height: 190px;
+          object-fit: cover;
+          padding: 5px;
+          border-radius: 50%;
+          cursor: pointer;
+          @include sm {
+            width: 130px;
+            height: 130px;
+          }
+        }
+      }
+      p {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 42px;
+        text-transform: capitalize;
+        cursor: pointer;
+        font-weight: 500;
+      }
+    }
+    .right {
+      flex: 1;
+      display: flex;
+      gap: 20px;
+      @include sm {
+        width: 100%;
+      }
+      form {
+        @include sm {
+          padding: 0px 20px;
+          display: flex;
+          gap: 17px;
+        }
+
+        .input_div {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          gap: 10px;
+          margin-bottom: 15px;
+
+          @include sm {
+            margin-bottom: 0px;
+          }
+          label {
+            color: gray;
+            font-size: 17px;
+            @include sm {
+              font-size: 15px;
+            }
+          }
+          input,
+          textarea,
+          select {
+            padding: 17px;
+            border-radius: 3px;
+            font-size: 16px;
+            outline: none;
+            border: 1px solid lightgray;
+            &::placeholder {
+              font-size: 17px;
+            }
+            &:focus {
+              border: 1px solid #1dbf73;
+            }
+
+            @include sm {
+              padding: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

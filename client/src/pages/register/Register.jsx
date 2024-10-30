@@ -5,7 +5,7 @@ import BuyerForm from "../../components/buyerForm/BuyerForm";
 import axios from "axios";
 import upload from "../../utils/upload";
 import newRequest from "../../utils/newrequest";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 function Register() {
@@ -44,20 +44,26 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    const url = await upload(file);
     try {
+      const url = await upload(file);
       const res = await newRequest.post("/auth/register", {
         ...user,
         img: url,
       });
-      if (res?.status === 201) {
-        toast.success(res?.data);
+      if (res?.data.success) {
+        toast.success(res?.data.message);
         navigate("/login");
       } else {
-        toast.error("Username or Email is already exist!");
+        toast.error(
+          res?.data.message || "An error occurred. Please try again."
+        );
       }
     } catch (error) {
-      console.log(error);
+      // Display the error message from Axios response if available
+      const errorMessage =
+        error.response?.data?.message || "An error occurred. Please try again.";
+      toast.error(errorMessage);
+      console.log(error); // For debugging
     } finally {
       setLoading(false);
     }
@@ -82,6 +88,13 @@ function Register() {
               Seller Account
             </button>
           </div>
+          <p>
+            Already have an account?{" "}
+            <Link className="link" to="/login">
+              {" "}
+              <span>Sign in</span>
+            </Link>
+          </p>
         </div>
       )}
 
