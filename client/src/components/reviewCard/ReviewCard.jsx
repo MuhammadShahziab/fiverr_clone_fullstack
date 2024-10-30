@@ -22,11 +22,13 @@ const ReviewCard = ({ item, gigDeliveryTime, gigPrice }) => {
         ) : (
           <div className="user">
             {data?.img ? (
-              <img
-                src={data?.img || "/img/noavatar.jpg"}
-                alt="user"
-                className="profile"
-              />
+              <div className="profile">
+                <img
+                  src={data?.img || "/img/noavatar.jpg"}
+                  alt="user"
+                  className="profile_img"
+                />
+              </div>
             ) : (
               <p style={{ backgroundColor: GetColor(data?.username) }}>
                 {data?.username.charAt()}

@@ -15,9 +15,17 @@
     padding: 0px !important;
     .profile {
       width: 50px;
-      border-radius: 50%;
       height: 50px;
-      object-fit: cover;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .profileImg {
+        width: 49px;
+        height: 49px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
     }
     p {
       @include profileColor;
